@@ -27,6 +27,7 @@ class FIPIconPicker extends StatefulWidget {
   final double? crossAxisSpacing;
   final Color? backgroundColor;
   final bool? showTooltips;
+  final Function(IconPickerIcon icon)? onPicked;
 
   const FIPIconPicker({
     super.key,
@@ -41,6 +42,7 @@ class FIPIconPicker extends StatefulWidget {
     this.iconColor,
     this.showTooltips,
     this.customIconPack,
+    this.onPicked,
   });
 
   @override
@@ -183,8 +185,11 @@ class _FIPIconPickerState extends State<FIPIconPicker> {
                             child: GestureDetector(
                               onTap: () => controller.onTapIcon(
                                 item.value,
-                                onSelected: () =>
-                                    Navigator.pop(context, item.value),
+                                onSelected: () {
+                                  if (widget.onPicked != null) {
+                                    widget.onPicked!(item.value);
+                                  }
+                                },
                               ),
                               child: widget.showTooltips!
                                   ? Tooltip(

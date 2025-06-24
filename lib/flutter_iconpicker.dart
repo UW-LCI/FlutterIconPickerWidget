@@ -1,5 +1,5 @@
-/// FlutterIconPicker
-/// Author Rebar Ahmad
+/// Forked version of FlutterIconPicker
+/// by Author Rebar Ahmad
 /// https://github.com/Ahmadre
 /// rebar.ahmad@gmail.com
 
@@ -10,6 +10,7 @@ export 'Models/icon_pack.dart';
 export 'Serialization/icondata_serialization.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_iconpicker/IconPicker/picker_widget.dart';
 import 'package:flutter_iconpicker/Models/configuration.dart';
 import 'Models/icon_picker_icon.dart';
 import 'package:flutter_iconpicker/controllers/icon_controller.dart';
@@ -287,4 +288,47 @@ Future<List<IconPickerIcon>?> showMultipleIconPicker(
   controller.searchTextController.clear();
 
   return controller.selectedIcons;
+}
+
+FIPWidget getIconPicker(
+    {required Function(IconPickerIcon icon) onPicked,
+    SinglePickerConfiguration configuration =
+        const SinglePickerConfiguration()}) {
+  configuration = configuration.copyWith(
+    iconColor: configuration.iconColor,
+    iconPickerShape: configuration.iconPickerShape ??
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+    backgroundColor: configuration.backgroundColor,
+  );
+
+  final controller = FIPIconController(
+    selectedIcon: configuration.preSelected,
+    shouldScrollToSelectedIcon: configuration.shouldScrollToSelectedIcon,
+    iconBuilder: configuration.iconBuilder,
+  );
+
+  return FIPWidget(
+    controller: controller,
+    selectedIconBackgroundColor: configuration.selectedIconBackgroundColor,
+    showSearchBar: configuration.showSearchBar,
+    showTooltips: configuration.showTooltips,
+    barrierDismissible: configuration.barrierDismissible,
+    iconSize: configuration.iconSize,
+    iconColor: configuration.iconColor,
+    mainAxisSpacing: configuration.mainAxisSpacing,
+    crossAxisSpacing: configuration.crossAxisSpacing,
+    iconPickerShape: configuration.iconPickerShape,
+    backgroundColor: configuration.backgroundColor,
+    constraints: configuration.constraints,
+    title: configuration.title,
+    closeChild: configuration.closeChild,
+    searchIcon: configuration.searchIcon,
+    searchHintText: configuration.searchHintText,
+    searchClearIcon: configuration.searchClearIcon,
+    noResultsText: configuration.noResultsText,
+    iconPackMode: configuration.iconPackModes,
+    customIconPack: configuration.customIconPack,
+    searchComparator: configuration.searchComparator,
+    onPicked: onPicked,
+  );
 }

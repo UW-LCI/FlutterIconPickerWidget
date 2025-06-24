@@ -57,7 +57,9 @@ class FIPIconController with ChangeNotifier {
 
   void onTapIcon(IconPickerIcon val, {VoidCallback? onSelected}) {
     if (!_isMultiple) {
+      selectedIcon = val;
       onSelected?.call();
+      debugPrint(selectedIcon.toString());
     } else {
       toggleSelectedIcon(val);
     }
