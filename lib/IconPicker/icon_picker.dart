@@ -211,54 +211,54 @@ class _FIPIconPickerState extends State<FIPIconPicker> {
                       }),
                 ),
               ),
-            IgnorePointer(
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.lerp(
-                          Alignment.topCenter, Alignment.center, .05)!,
-                      colors: [
-                        widget.backgroundColor ??
-                            Theme.of(context).dialogTheme.backgroundColor ??
-                            Theme.of(context).scaffoldBackgroundColor,
-                        (widget.backgroundColor ??
-                                Theme.of(context).dialogTheme.backgroundColor ??
-                                Theme.of(context).scaffoldBackgroundColor)
-                            .withValues(alpha: .1),
-                      ],
-                      stops: const [
-                        0.0,
-                        1.0
-                      ]),
-                ),
-                child: Container(),
-              ),
-            ),
-            IgnorePointer(
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.lerp(
-                          Alignment.bottomCenter, Alignment.center, .05)!,
-                      colors: [
-                        widget.backgroundColor ??
-                            Theme.of(context).dialogTheme.backgroundColor ??
-                            Theme.of(context).scaffoldBackgroundColor,
-                        (widget.backgroundColor ??
-                                Theme.of(context).dialogTheme.backgroundColor ??
-                                Theme.of(context).scaffoldBackgroundColor)
-                            .withValues(alpha: .1),
-                      ],
-                      stops: const [
-                        0.0,
-                        1.0
-                      ]),
-                ),
-                child: Container(),
-              ),
-            ),
+            // IgnorePointer(
+            //   child: Container(
+            //     decoration: BoxDecoration(
+            //       gradient: LinearGradient(
+            //           begin: Alignment.topCenter,
+            //           end: Alignment.lerp(
+            //               Alignment.topCenter, Alignment.center, .05)!,
+            //           colors: [
+            //             widget.backgroundColor ??
+            //                 Theme.of(context).dialogTheme.backgroundColor ??
+            //                 Theme.of(context).scaffoldBackgroundColor,
+            //             (widget.backgroundColor ??
+            //                     Theme.of(context).dialogTheme.backgroundColor ??
+            //                     Theme.of(context).scaffoldBackgroundColor)
+            //                 .withValues(alpha: .1),
+            //           ],
+            //           stops: const [
+            //             0.0,
+            //             1.0
+            //           ]),
+            //     ),
+            //     child: Container(),
+            //   ),
+            // ),
+            // IgnorePointer(
+            //   child: Container(
+            //     decoration: BoxDecoration(
+            //       gradient: LinearGradient(
+            //           begin: Alignment.bottomCenter,
+            //           end: Alignment.lerp(
+            //               Alignment.bottomCenter, Alignment.center, .05)!,
+            //           colors: [
+            //             widget.backgroundColor ??
+            //                 Theme.of(context).dialogTheme.backgroundColor ??
+            //                 Theme.of(context).scaffoldBackgroundColor,
+            //             (widget.backgroundColor ??
+            //                     Theme.of(context).dialogTheme.backgroundColor ??
+            //                     Theme.of(context).scaffoldBackgroundColor)
+            //                 .withValues(alpha: .1),
+            //           ],
+            //           stops: const [
+            //             0.0,
+            //             1.0
+            //           ]),
+            //     ),
+            //     child: Container(),
+            //   ),
+            // ),
           ],
         ),
       ),

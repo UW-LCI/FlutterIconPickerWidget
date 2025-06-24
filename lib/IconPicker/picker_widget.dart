@@ -102,7 +102,7 @@ class FIPWidget extends StatelessWidget {
                     searchComparator: searchComparator,
                   ),
                 Expanded(
-                  child: FIPMultipleIconPicker(
+                  child: FIPIconPicker(
                     iconController: controller,
                     selectedIconBackgroundColor: selectedIconBackgroundColor,
                     showTooltips: showTooltips,
