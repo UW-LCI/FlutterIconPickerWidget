@@ -27,6 +27,7 @@ class FIPMultipleIconPicker extends StatefulWidget {
   final double? crossAxisSpacing;
   final Color? backgroundColor;
   final bool? showTooltips;
+  final Function(IconPickerIcon icon)? onPicked;
 
   const FIPMultipleIconPicker({
     super.key,
@@ -41,6 +42,7 @@ class FIPMultipleIconPicker extends StatefulWidget {
     this.iconColor,
     this.showTooltips,
     this.customIconPack,
+    this.onPicked,
   });
 
   @override
@@ -180,7 +182,14 @@ class FIPMultipleIconPickerState extends State<FIPMultipleIconPicker> {
                           child: Container(
                             color: isSelected ? selectedIconColor : null,
                             child: GestureDetector(
-                              onTap: () => controller.onTapIcon(item.value),
+                              onTap: () => controller.onTapIcon(
+                                item.value,
+                                onSelected: () {
+                                  if (widget.onPicked != null) {
+                                    widget.onPicked!(item.value);
+                                  }
+                                },
+                              ),
                               child: widget.showTooltips!
                                   ? Tooltip(
                                       message: item.key,

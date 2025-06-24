@@ -59,7 +59,6 @@ class FIPIconController with ChangeNotifier {
     if (!_isMultiple) {
       selectedIcon = val;
       onSelected?.call();
-      debugPrint(selectedIcon.toString());
     } else {
       toggleSelectedIcon(val);
     }
