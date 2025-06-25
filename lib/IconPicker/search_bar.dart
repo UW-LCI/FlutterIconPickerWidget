@@ -76,7 +76,9 @@ class _FIPSearchBarState extends State<FIPSearchBar> {
       if (searchResult.isNotEmpty) {
         widget.iconController.icons = searchResult;
       } else {
-        widget.iconController.removeAll();
+        if (searchValue != '') {
+          widget.iconController.removeAll();
+        }
       }
     });
   }

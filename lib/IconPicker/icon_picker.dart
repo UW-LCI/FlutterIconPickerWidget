@@ -164,12 +164,8 @@ class _FIPIconPickerState extends State<FIPIconPicker> {
                             widget.iconController.selectedIcon! == item.value;
 
                         if (controller.iconBuilder != null) {
-                          return controller.iconBuilder!(
-                            context,
-                            item.value,
-                            isSelected,
-                            controller.onTapIcon,
-                          );
+                          return controller.iconBuilder!(context, item.value,
+                              isSelected, controller.onTapIcon);
                         }
 
                         final selectedIconColor =

@@ -69,56 +69,36 @@ class FIPWidget extends StatelessWidget {
       builder: (ctx, w) {
         return Scaffold(
           backgroundColor: backgroundColor,
-          body: Padding(
-            padding: const EdgeInsets.only(
-              top: 10,
-              bottom: 20,
-              left: 20,
-              right: 20,
-            ),
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: kToolbarHeight,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 6),
-                        child: title!,
-                      ),
-                    ],
-                  ),
+          body: Column(
+            children: <Widget>[
+              if (showSearchBar!)
+                FIPSearchBar(
+                  iconController: controller,
+                  iconPack: iconPackMode,
+                  customIconPack: customIconPack,
+                  searchIcon: searchIcon,
+                  searchClearIcon: searchClearIcon,
+                  searchHintText: searchHintText,
+                  backgroundColor: backgroundColor,
+                  searchComparator: searchComparator,
                 ),
-                if (showSearchBar!)
-                  FIPSearchBar(
-                    iconController: controller,
-                    iconPack: iconPackMode,
-                    customIconPack: customIconPack,
-                    searchIcon: searchIcon,
-                    searchClearIcon: searchClearIcon,
-                    searchHintText: searchHintText,
-                    backgroundColor: backgroundColor,
-                    searchComparator: searchComparator,
-                  ),
-                Expanded(
-                  child: FIPIconPicker(
-                    iconController: controller,
-                    selectedIconBackgroundColor: selectedIconBackgroundColor,
-                    showTooltips: showTooltips,
-                    iconPack: iconPackMode,
-                    customIconPack: customIconPack,
-                    iconColor: iconColor,
-                    backgroundColor: backgroundColor,
-                    noResultsText: noResultsText,
-                    iconSize: iconSize,
-                    mainAxisSpacing: mainAxisSpacing,
-                    crossAxisSpacing: crossAxisSpacing,
-                    onPicked: onPicked,
-                  ),
+              Expanded(
+                child: FIPIconPicker(
+                  iconController: controller,
+                  selectedIconBackgroundColor: selectedIconBackgroundColor,
+                  showTooltips: showTooltips,
+                  iconPack: iconPackMode,
+                  customIconPack: customIconPack,
+                  iconColor: iconColor,
+                  backgroundColor: backgroundColor,
+                  noResultsText: noResultsText,
+                  iconSize: iconSize,
+                  mainAxisSpacing: mainAxisSpacing,
+                  crossAxisSpacing: crossAxisSpacing,
+                  onPicked: onPicked,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         );
       },
